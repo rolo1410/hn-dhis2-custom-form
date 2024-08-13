@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre id="prePokemon">
+
+</pre>
+</body>
+
+<script>
+
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+        .then(response => response.json())
+        .then(allpokemon => {
+            console.log(allpokemon)
+            let t = document.getElementById('prePokemon')
+            t.innerHTML = JSON.stringify(allpokemon, null, 4)
+        })
+
+</script>
+
+</html>
