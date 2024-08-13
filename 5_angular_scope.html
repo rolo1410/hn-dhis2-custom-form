@@ -1,5 +1,34 @@
-<div>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<script>
+    /**/
+    function buscar() {
+        let t = document.querySelector('input[name="Ewi7FUfcHAD"]')
+        // validar si existe el selector
+        // validar si es solo uno (se van a encontrar hasta 4)
+        console.log(t.value)
+        alert(t.value)
+    }
+    /**/
+    function agregarNombreinnerHTML() {
+        let t = document.querySelector('input[name="ENRjVGxVL6l"]')
+        console.log(t.value)
+        t.innerHTML = "innerHtml este valor no se va al backend"
+    }
+    /**/
+    function agregarNombreinnerText() {
+        let t = document.querySelector('input[name="ENRjVGxVL6l"]')
+        console.log(t.value)
+        t.innerText = "innerText este valor no se va al backend"
+    }
+    /**/
+    function agregarNombrevalue() {
+        let t = document.querySelector('input[name="ENRjVGxVL6l"]')
+        console.log(t.value)
+        t.value = "value este valor no se va al backend"
+    }
+</script>
 
+<div>
     <table>
         <tr>
             <td>
@@ -10,7 +39,7 @@
                     value="[ No. de identidad ]" />
             </td>
             <td>
-                <input name="Buscar" type="button" />
+                <button type="button" onclick="buscar()" class="btn btn-primary">Buscar</button>
             </td>
         </tr>
 
@@ -20,6 +49,11 @@
             </td>
             <td>
                 <input attributeid="ENRjVGxVL6l" name="ENRjVGxVL6l" title="Apellidos" value="[ Apellidos ]" />
+            </td>
+            <td>
+                <button type="button" onclick="agregarNombreinnerHTML()" class="btn btn-primary">innerHTML</button>
+                <button type="button" onclick="agregarNombreinnerText()" class="btn btn-primary">innerText</button>
+                <button type="button" onclick="agregarNombrevalue()" class="btn btn-primary">value</button>
             </td>
         </tr>
 
@@ -58,7 +92,6 @@
             <td>
                 <input attributeid="NI0QRzJvQ0k" name="NI0QRzJvQ0k" title="Fecha de nacimiento"
                     value="[ Fecha de nacimiento ]" />
-
         </tr>
         <tr>
             <td>
@@ -74,17 +107,34 @@
     <div class="panel panel-default">
         <div class="panel-body">
             Podemos poner algo de información
+            <pre id="prePokemon"></pre>
         </div>
     </div>
 </div>
-<script>
-    $(function () {
-        console.time('SECCION FINAL')
-    })
-</script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("DOMContentLoaded");
+    function esSoloNumeros(cadena) {
+        const regex = /^\d+$/;
+        return regex.test(cadena);
+    }
+
+
+
+    console.log("Acceso al scope Angular")
+    // var frm = document.querySelector("form[name='outerForm']");
+    // var $scope = angular.element(frm).scope();
+
+
+    var cForm = angular.element(document.querySelector("d2-custom-registration-form")).scope();
+
+    //   Observador teléfon
+    cForm.$watch("currentEvent.fctSQp5nAYl", function (newValue, oldValue) {
+        if (esSoloNumeros(newValue)) {
+            console.log("Solo se debe ingresar números")
+            //Alert("Solo se debe ingresar números")
+        }
+
     });
+
+
 </script>
